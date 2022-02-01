@@ -17,5 +17,15 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
+  defaultNetwork: "hardhat",
+  networks: {
+    hardhat: {
+
+    },
+    ropsten: {
+      url: "https://eth-ropsten.alchemyapi.io/v2/" + process.env.ALCHEMY_ROPSTEN_TOKEN,
+      accounts: [process.env.ETH_PKEY]
+    }
+  },
   solidity: "0.8.4",
 };
